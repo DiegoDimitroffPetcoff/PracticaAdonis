@@ -20,6 +20,7 @@ const Route = use("Route");
 // Route.on("/").render("root");
 // Route.on("/login").render("login");
 Route.get("/adonis", () => "Hello Adonis");
+Route.get('posts', 'NuevoController.index')
 
 
 Route.get("/users", 'UsersControllers.index')
