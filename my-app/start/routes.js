@@ -21,11 +21,8 @@ const Route = use("Route");
 // Route.on("/login").render("login");
 Route.get("/adonis", () => "Hello Adonis");
 
-const Products = use('App/Models/User.js');
-Route.get("/users", async ({view}) => {
-    const products = (await Products.all()).toJSON()
-  return view.render("users",{products})
-});
+
+Route.get("/users", 'UsersControllers.index')
 
 Route.on("/failLogin").render("failLogin");
 Route.on("/signUp").render("signUp");
