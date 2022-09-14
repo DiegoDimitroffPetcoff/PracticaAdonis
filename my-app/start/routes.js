@@ -1,4 +1,4 @@
-'use strict'
+"use strict";
 
 /*
 |--------------------------------------------------------------------------
@@ -15,22 +15,22 @@
 
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 
-const Route = use('Route')
+const Route = use("Route");
 
-Route.on('/').render('root')
-Route.on('/login').render('login')
-Route.get('/', () => 'Hello Adonis')
+// Route.on("/").render("root");
+// Route.on("/login").render("login");
+Route.get("/adonis", () => "Hello Adonis");
 
+const Products = use('App/Models/User.js');
+Route.get("/users", async ({view}) => {
+    const products = (await Products.all()).toJSON()
+  return view.render("users",{products})
+});
 
-Route.on('/failLogin').render('failLogin')
-Route.on('/signUp').render('signUp')
-Route.on('/logout').render('logout')
-Route.on('/productos').render('main')
-Route.on('/chat').render('about')
+Route.on("/failLogin").render("failLogin");
+Route.on("/signUp").render("signUp");
+Route.on("/logout").render("logout");
+Route.on("/productos").render("main");
+Route.on("/chat").render("about");
 
-  
-
-
-Route.on('*').render('error')
-
-
+Route.on("*").render("error");
